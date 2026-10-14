@@ -89,4 +89,4 @@ JetBrains Mono v2.304 Regular, Medium, and SemiBold WOFF2 files are hosted local
 - https://support.flaticon.com/articles/en_US/Knowledge/Blogs-and-websites-FI
 - https://www.flaticon.com/legal/
 
-Certificate image previews open in a native modal dialog with an uncropped image and Close button. Escape and backdrop clicks dismiss it; native modal behavior confines keyboard focus and focus returns to the preview button on close. Lock page scrolling while open. The separate View certificate PDF links keep their new-tab behavior.
+Certificate image previews open in a native modal dialog with an uncropped image and an X icon button labeled Close certificate preview. Escape and backdrop clicks dismiss it; native modal behavior confines keyboard focus and focus returns to the preview button on close. Lock page scrolling while open. The separate View certificate PDF links keep their new-tab behavior.
