@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CertificatePreview } from "@/components/certificate-preview";
 import { certificates } from "@/content/profile";
 
 export function Certificates() {
@@ -23,21 +23,7 @@ export function Certificates() {
       <div className="certificate-grid">
         {certificates.map((certificate) => (
           <article className="certificate-card" key={certificate.pdf}>
-            <a
-              className="certificate-preview"
-              href={certificate.pdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${certificate.title} certificate (PDF, opens in a new tab)`}
-            >
-              <Image
-                src={certificate.preview}
-                alt={`${certificate.title} certificate awarded to Alfred Tamayo`}
-                width={certificate.width}
-                height={certificate.height}
-                sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1099px) 50vw, 33vw"
-              />
-            </a>
+            <CertificatePreview certificate={certificate} />
             <div className="certificate-body">
               <div className="certificate-meta">
                 <span>{certificate.type}</span>

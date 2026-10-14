@@ -51,7 +51,7 @@ No `src/` directory is used. Read [AGENTS.md](AGENTS.md) before editing, then th
 
 Project detail screenshots use a carousel directly below the project title, with one dot per image, clickable image halves, captions, and a slide count. Click the left half of the screenshot for the previous slide or the right half for the next. Arrow keys, horizontal swipes, and direct dot selection also work. Screenshots do not open new tabs. There is no autoplay.
 
-The Certificates section includes Computer Hardware Basics, Introduction to Cybersecurity, and Build with AI 2026 – Baguio. Accurate completion/participation labels accompany dates, issuers, uncropped previews, and original PDF links. Data lives in `content/profile.ts`; documents and previews are in `public/certificates/`.
+The Certificates section includes Computer Hardware Basics, Introduction to Cybersecurity, and Build with AI 2026 – Baguio. Accurate completion/participation labels accompany dates, issuers, uncropped image previews in a modal, and original PDF links that open in a new tab. Data lives in `content/profile.ts`; documents and previews are in `public/certificates/`.
 
 Three featured projects and four further projects are included. The default collection avoids duplicates; category filters search the entire inventory. Details distinguish planned work from confirmed contribution and describe historical stacks as project context. Cooper is a private team project.
 

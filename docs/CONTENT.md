@@ -251,3 +251,5 @@ The user supplied these for public display in the contact section:
 These records live in content/profile.ts. Each contact has a visible label and a decorative outline icon. GitHub, LinkedIn, and Facebook contact cards open in a new tab with noopener/noreferrer and an accessible new-tab label. Email links open the visitor's mail application. Discord copy reports success accessibly or prompts manual copying if clipboard access is unavailable. No message is sent by the portfolio. External account ownership was not independently verified.
 
 The Recent public repositories list was removed from GitHub Activity at the user's request. The contribution calendar, statistics, profile link, and snapshot source remain.
+
+Certificate card images use components/certificate-preview.tsx to open an image modal. The separate PDF links still open original documents in a new tab. Certificate records and files are unchanged.
