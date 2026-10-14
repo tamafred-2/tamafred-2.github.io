@@ -149,10 +149,14 @@ Installed: Node 24.16.0, npm 11.13.0, Next.js / eslint-config-next 16.4.0, React
 
 The typecheck script generates route types before tsc, including on a fresh CI checkout. The dependency-free preview server serves out/ on http://localhost:3000, with directory routes and custom 404 responses. next start is not used.
 
-No Git remote is configured as inspected. The current local branch is master, so the workflow accepts both master and main without requiring a branch rename. Confirm tamafred-2 ownership, connect the existing repository to tamafred-2/tamafred-2.github.io, review/commit changes including package-lock.json, and push the intended branch when ready. Select GitHub Actions in Settings → Pages. No push or public deployment was performed.
+The repository is connected to https://github.com/tamafred-2/tamafred-2.github.io.git on master. The portfolio was committed and pushed on October 14, 2026. GitHub Pages was enabled with build_type workflow after the first configure-pages step failed because Pages was not yet enabled. The workflow was rerun; verification results are recorded in docs/CHECKLIST.md.
 
 Dependency audit: npm audit reports five high-severity findings in the dev-tool chain eslint-config-next → @next/eslint-plugin-next → fast-glob → micromatch → braces. The proposed downgrade to eslint-config-next 14.2.35 requires ESLint ^7.23.0 or ^8.0.0, incompatible with installed ESLint 9.39.5 and the retained Next.js 16 pairing. Dependencies and lockfile were left unchanged; no force fix or suppression was applied. Reassess upstream fixes separately.
 
 The production-only audit (`npm audit --omit=dev --json`) reports zero vulnerabilities. This does not resolve the five development-tool findings above.
 
 Action references: https://github.com/actions/checkout ; https://github.com/actions/setup-node ; https://github.com/actions/starter-workflows/blob/main/pages/nextjs.yml
+
+## Deployment repair ? October 14, 2026
+
+The first build after enabling Pages failed because components/header.tsx imports the root picture.jpg, which was missing from the commit. Include this existing profile image along with the latest carousel refinements before pushing. The local build succeeds with this image present; remote workflow and live-site results are recorded in docs/CHECKLIST.md.

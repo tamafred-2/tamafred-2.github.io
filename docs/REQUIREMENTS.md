@@ -32,7 +32,7 @@ Each card shows an approved image or deliberate neutral text cover, title, conci
 
 Include overview, problem, personal role/contribution, selected features, technology, screenshots, and short lessons/next steps if approved. Hide empty sections. Only render working, verified repository/demo links. Label Cooper as a private internship project and omit its source link by default.
 
-Project screenshots use a carousel directly below the project title, replacing the detail cover and lower screenshot gallery. Show one image at a time with its caption, previous/next buttons, one selected-state dot per image, and a visible slide count. Allow direct dot selection, Left/Right and Home/End keyboard navigation, and horizontal touch swipes. Clicking the left 50% of the image selects the previous screenshot; clicking the right 50% selects the next. Images have no new-tab links. Preserve vertical page scrolling and static export. Do not auto-advance. Omit the carousel for empty image lists and hide navigation controls for a single image.
+Project screenshots use a carousel directly below the project title, replacing the detail cover and lower screenshot gallery. Show one image at a time with its caption, clickable previous/next image halves, one selected-state dot per image, and a visible slide count. Allow direct dot selection, Left/Right and Home/End keyboard navigation, and horizontal touch swipes. Clicking the left 50% of the image selects the previous screenshot; clicking the right 50% selects the next. Images have no new-tab links. Preserve vertical page scrolling and static export. Do not auto-advance. Omit the carousel for empty image lists and hide navigation controls for a single image.
 
 ### Experience, skills, about, and contact
 

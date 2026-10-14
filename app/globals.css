@@ -828,16 +828,57 @@ p {
   border-radius: var(--radius);
   background: transparent;
 }
+.carousel-image-zone {
+  cursor: pointer;
+}
+.carousel-image-hint {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 64px;
+  border-radius: 12px;
+  background: rgb(0 0 0 / 40%);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 20%);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.carousel-image-previous .carousel-image-hint {
+  left: 16px;
+}
+.carousel-image-next .carousel-image-hint {
+  right: 16px;
+}
+@media (hover: hover) {
+  .carousel-image-zone:hover .carousel-image-hint {
+    animation: carousel-hint 1.5s ease-out forwards;
+  }
+}
+@keyframes carousel-hint {
+  0%, 65% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.screenshot-carousel:focus-visible,
 .carousel-image-zone:focus-visible {
-  outline-offset: -4px;
+  outline: none;
+}
+.screenshot-carousel:focus-visible .carousel-status,
+.screenshot-carousel:has(.carousel-image-zone:focus-visible) .carousel-status {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-strong);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
 }
 .carousel-image-previous {
   left: 0;
-  cursor: w-resize;
+
 }
 .carousel-image-next {
   right: 0;
-  cursor: e-resize;
+
 }
 .carousel-slide figcaption {
   margin-top: 16px;
@@ -888,41 +929,6 @@ p {
 }
 .carousel-status {
   font-size: 11px !important;
-}
-.carousel-arrow {
-  flex-shrink: 0;
-}
-@media (max-width: 767px) {
-  .carousel-controls {
-    display: grid;
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
-    gap: 8px;
-  }
-  .carousel-pagination {
-    display: contents;
-  }
-  .carousel-status {
-    grid-column: 2;
-    grid-row: 1;
-    text-align: center;
-  }
-  .carousel-dots {
-    grid-column: 1 / -1;
-    grid-row: 2;
-  }
-  .carousel-arrow {
-    grid-row: 1;
-  }
-  .carousel-arrow:last-child {
-    grid-column: 3;
-  }
-  .carousel-arrow {
-    min-width: 44px;
-    padding: 8px;
-  }
-  .carousel-arrow-text {
-    display: none;
-  }
 }
 .not-found {
   min-height: 65vh;

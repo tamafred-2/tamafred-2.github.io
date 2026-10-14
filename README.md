@@ -49,7 +49,7 @@ No `src/` directory is used. Read [AGENTS.md](AGENTS.md) before editing, then th
 
 ## Content and assets
 
-Project detail screenshots use a carousel directly below the project title, with one dot per image, previous/next controls, captions, and a slide count. Click the left half of the screenshot for the previous slide or the right half for the next. Arrow keys, horizontal swipes, and direct dot selection also work. Screenshots do not open new tabs. There is no autoplay.
+Project detail screenshots use a carousel directly below the project title, with one dot per image, clickable image halves, captions, and a slide count. Click the left half of the screenshot for the previous slide or the right half for the next. Arrow keys, horizontal swipes, and direct dot selection also work. Screenshots do not open new tabs. There is no autoplay.
 
 The Certificates section includes Computer Hardware Basics, Introduction to Cybersecurity, and Build with AI 2026 – Baguio. Accurate completion/participation labels accompany dates, issuers, uncropped previews, and original PDF links. Data lives in `content/profile.ts`; documents and previews are in `public/certificates/`.
 
@@ -61,7 +61,7 @@ JetBrains Mono v2.304 is bundled under SIL OFL 1.1; the license is in `public/fo
 
 ## Deployment
 
-Prepared for the root site `https://tamafred-2.github.io/`, with static export, trailing slashes, and unoptimized images. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the workflow and remaining account/repository setup. No remote is currently configured and no deployment has been performed.
+Prepared for the root site `https://tamafred-2.github.io/`, with static export, trailing slashes, and unoptimized images. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the workflow and remaining account/repository setup. The repository is connected to tamafred-2/tamafred-2.github.io. GitHub Pages uses the GitHub Actions workflow; deployment verification is recorded in docs/CHECKLIST.md.
 
 Versions: Next.js 16.4.0, React 19.3.0, Tailwind CSS 4.3.3, TypeScript 5.9.3, ESLint 9.39.5; local Node 24.16.0 / npm 11.13.0. Dependencies are preserved. The audit's proposed ESLint config downgrade is incompatible with ESLint 9; see the deployment document for outstanding dev-tool audit findings.
 

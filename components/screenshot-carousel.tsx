@@ -113,14 +113,46 @@ export function ScreenshotCarousel({
                   aria-label="Previous screenshot"
                   aria-controls={slideId}
                   onClick={() => step(-1)}
-                />
+                >
+                  <span className="carousel-image-hint" aria-hidden="true">
+                    <svg
+                      width="28"
+                      height="28"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      focusable="false"
+                    >
+                      <path d="m15 5-7 7 7 7" />
+                    </svg>
+                  </span>
+                </button>
                 <button
                   type="button"
                   className="carousel-image-zone carousel-image-next"
                   aria-label="Next screenshot"
                   aria-controls={slideId}
                   onClick={() => step(1)}
-                />
+                >
+                  <span className="carousel-image-hint" aria-hidden="true">
+                    <svg
+                      width="28"
+                      height="28"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      focusable="false"
+                    >
+                      <path d="m9 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </button>
               </>
             )}
           </div>
@@ -128,18 +160,6 @@ export function ScreenshotCarousel({
         </figure>
       </div>
       <div className="carousel-controls">
-        {multiple && (
-          <button
-            type="button"
-            className="button button-secondary carousel-arrow"
-            aria-label="Previous screenshot"
-            aria-controls={slideId}
-            onClick={() => step(-1)}
-          >
-            <span aria-hidden="true">←</span>
-            <span className="carousel-arrow-text">Previous</span>
-          </button>
-        )}
         <div className="carousel-pagination">
           {multiple && (
             <div
@@ -171,18 +191,7 @@ export function ScreenshotCarousel({
             Screenshot {index + 1} of {images.length}
           </p>
         </div>
-        {multiple && (
-          <button
-            type="button"
-            className="button button-secondary carousel-arrow"
-            aria-label="Next screenshot"
-            aria-controls={slideId}
-            onClick={() => step(1)}
-          >
-            <span className="carousel-arrow-text">Next</span>
-            <span aria-hidden="true">→</span>
-          </button>
-        )}
+
       </div>
     </div>
   );

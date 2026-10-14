@@ -112,3 +112,13 @@ Pending inputs: approved screenshots, resume, project URLs, confirmation of fina
 October 14, 2026 repository list removal: removed Recent public repositories from GitHub Activity. Lint, typecheck, and production build passed. Static preview HTTP verification confirmed the list/cards are absent and the calendar, statistics, and profile link remain. Browser visual inspection remains unavailable.
 
 October 14, 2026 GitHub date filter: changed the calendar and contribution/streak totals to February 1, 2026 through the refresh date. Refreshed real public data through October 14, 2026 (256 days). Lint, typecheck, build, four existing data/calendar tests, snapshot boundary/total checks, and static preview range/day-count checks passed. Future refreshes extend the end date while retaining February 2026 as the start. Browser visual inspection remains unavailable.
+
+October 14, 2026 carousel hover refinement: removed separate Previous/Next buttons and resize cursors. Image halves use a pointer cursor with shaded chevron hints that fade after 1.5 seconds on hover; keyboard focus retains a visible hint. Dots, count, swipe, and keyboard navigation remain. Lint, typecheck, build, and static preview checks passed. Browser visual inspection is unavailable; hover timing and appearance remain manual checks.
+
+GitHub deployment was paused at the user's request after pushing commit 396dca5 and enabling Pages with GitHub Actions. Run 38525259023 attempt 2 failed at the production build step; no successful deployment has been verified. Current local screenshot refinements have not been pushed.
+
+October 14, 2026 arrow encoding fix: shell encoding had replaced the hover chevrons with literal question marks. Replaced them with JSX HTML entities for ASCII less-than/greater-than indicators. Lint, typecheck, build, and decoded static preview arrow checks passed. Browser appearance remains unverified; deployment stays paused.
+
+October 14, 2026 carousel keyboard focus: removed large image-half focus outlines and persistent keyboard arrow hints. Keyboard focus is indicated by an underline beneath the slide count; dots retain their focus rings. Lint, typecheck, build, and preview stylesheet checks passed. Actual keyboard appearance needs manual browser review. Changes remain local while deployment is paused.
+
+October 14, 2026 carousel icons: replaced text arrows with original inline SVG chevrons using rounded strokes. Hover fade and navigation behavior are unchanged. Lint, typecheck, build, and static preview SVG checks passed. Browser visual inspection remains unavailable; deployment remains paused.
