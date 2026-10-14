@@ -1,69 +1,164 @@
-import Image from "next/image";
+﻿import type { Metadata } from "next";
+import { education, experience, profile, skills } from "@/content/profile";
+import { projects } from "@/content/projects";
+import { ProjectGrid } from "@/components/project-grid";
+import { ContactMethods } from "@/components/contact-methods";
+import { Certificates } from "@/components/certificates";
+import { GitHubActivity } from "@/components/github-activity";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main id="main-content" className="container">
+      <section className="hero" aria-labelledby="intro-title">
+        <p className="eyebrow hero-intro">
+          <span aria-hidden="true" className="red-line" /> Hello, I’m{" "}
+          {profile.name}
+        </p>
+        <h1 id="intro-title">
+          {profile.title.split(" ").slice(0, -1).join(" ")}
+          <br />
+          <span className="accent">{profile.title.split(" ").at(-1)}.</span>
+        </h1>
+        <p className="hero-description">{profile.introduction}</p>
+        <div className="actions">
+          <a className="button button-primary" href="#work">
+            View projects <span aria-hidden="true">↓</span>
+          </a>
+          <a className="button button-secondary" href={profile.githubUrl}>
+            GitHub <span aria-hidden="true">↗</span>
+          </a>
+          {profile.resume && (
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              className="button button-secondary"
+              href={profile.resume.url}
+              download
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              {profile.resume.label}
+            </a>
+          )}
+        </div>
+        <p className="hero-location">{profile.location}</p>
+        <span className="hero-mark" aria-hidden="true">
+          &lt;/&gt;
+        </span>
+      </section>
+      <section id="work" className="section" aria-labelledby="work-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow section-index">01 / Selected work</p>
+            <h2 id="work-title">
+              Projects with a purpose<span className="accent">.</span>
+            </h2>
+          </div>
+          <p>
+            Web systems, mobile apps,
+            <br className="desktop-break" /> and automation.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <ProjectGrid projects={projects} />
+      </section>
+      <section
+        id="experience"
+        className="section split-section"
+        aria-labelledby="experience-title"
+      >
+        <div>
+          <p className="eyebrow section-index">02 / Experience</p>
+          <h2 id="experience-title">
+            Learning through
+            <br />
+            real work<span className="accent">.</span>
+          </h2>
         </div>
-      </main>
-    </div>
+        <article className="experience-entry">
+          <p className="eyebrow">{experience.period}</p>
+          <h3>{experience.title}</h3>
+          <p className="company">
+            {experience.company} <span aria-hidden="true">/</span>{" "}
+            {experience.location}
+          </p>
+          <p>{experience.description}</p>
+          <ul className="prose-list">
+            {experience.contributions.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+      </section>
+      <section className="section" aria-labelledby="skills-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow section-index">03 / Skills & tools</p>
+            <h2 id="skills-title">
+              My development toolkit<span className="accent">.</span>
+            </h2>
+          </div>
+          <p>
+            Technologies I work with
+            <br className="desktop-break" /> and explore through projects.
+          </p>
+        </div>
+        <div className="skills-list">
+          {skills.map((group) => (
+            <div key={group.name} className="skill-row">
+              <h3>{group.name}</h3>
+              <ul className="tags">
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+      <Certificates />
+      <section
+        id="about"
+        className="section split-section"
+        aria-labelledby="about-title"
+      >
+        <div>
+          <p className="eyebrow section-index">05 / A little about me</p>
+          <h2 id="about-title">
+            Curious by default<span className="accent">.</span>
+          </h2>
+        </div>
+        <div className="about-body">
+          <p>{profile.about}</p>
+          <div className="education">
+            <p className="eyebrow">Education</p>
+            <h3>{education.degree}</h3>
+            <p>{education.major}</p>
+            <p>{education.university}</p>
+            <p className="recognition">{education.recognition}</p>
+          </div>
+          <div className="education">
+            <p className="eyebrow">Senior high school</p>
+            <h3>{education.seniorHigh.track}</h3>
+            <p>{education.seniorHigh.school}</p>
+          </div>
+        </div>
+      </section>
+      <GitHubActivity />
+      <section
+        id="contact"
+        className="section contact-section"
+        aria-labelledby="contact-title"
+      >
+        <div>
+          <p className="eyebrow section-index">07 / Contact</p>
+          <h2 id="contact-title">
+            Let’s connect<span className="accent">.</span>
+          </h2>
+          <p>
+            Interested in my work or have a project to discuss?
+            <br className="desktop-break" /> Send an email or find me online.
+          </p>
+        </div>
+        <ContactMethods />
+      </section>
+    </main>
   );
 }
