@@ -42,7 +42,7 @@ This wording reflects Alfred's stated preference to present AI-assisted proficie
 
 ### Experience
 
-Outsoar PH — Software Development Intern
+Outsoar PH — Custom Development & DevOps Intern
 
 San Carlos City | February–May 2026
 

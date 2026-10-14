@@ -113,7 +113,7 @@ export const education = {
 
 export const experience = {
   company: "Outsoar PH",
-  title: "Software Development Intern",
+  title: "Custom Development & DevOps Intern",
   location: "San Carlos City",
   period: "February–May 2026",
   description:
