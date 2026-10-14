@@ -160,3 +160,7 @@ Action references: https://github.com/actions/checkout ; https://github.com/acti
 ## Deployment repair ? October 14, 2026
 
 The first build after enabling Pages failed because components/header.tsx imports the root picture.jpg, which was missing from the commit. Include this existing profile image along with the latest carousel refinements before pushing. The local build succeeds with this image present; remote workflow and live-site results are recorded in docs/CHECKLIST.md.
+
+## Verified deployment ? October 14, 2026
+
+Commit 4db9662 deployed successfully through workflow run https://github.com/tamafred-2/tamafred-2.github.io/actions/runs/38527904291. Both build and deploy jobs passed. The live URL is https://tamafred-2.github.io/. HTTP verification passed for home, all seven project detail routes, sitemap, home image/font/CSS assets, and initial project screenshot assets. The live carousel has SVG hints and no separate arrow controls. Browser visual/interaction inspection remains unavailable. This successful deployment supersedes the earlier paused/failed status records. Pushes to master or main automatically rebuild and publish.

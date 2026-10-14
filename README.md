@@ -61,7 +61,7 @@ JetBrains Mono v2.304 is bundled under SIL OFL 1.1; the license is in `public/fo
 
 ## Deployment
 
-Prepared for the root site `https://tamafred-2.github.io/`, with static export, trailing slashes, and unoptimized images. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the workflow and remaining account/repository setup. The repository is connected to tamafred-2/tamafred-2.github.io. GitHub Pages uses the GitHub Actions workflow; deployment verification is recorded in docs/CHECKLIST.md.
+Prepared for the root site `https://tamafred-2.github.io/`, with static export, trailing slashes, and unoptimized images. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the workflow and remaining account/repository setup. The repository is connected to tamafred-2/tamafred-2.github.io. The live site is https://tamafred-2.github.io/. GitHub Pages uses the GitHub Actions workflow; deployment verification is recorded in docs/CHECKLIST.md.
 
 Versions: Next.js 16.4.0, React 19.3.0, Tailwind CSS 4.3.3, TypeScript 5.9.3, ESLint 9.39.5; local Node 24.16.0 / npm 11.13.0. Dependencies are preserved. The audit's proposed ESLint config downgrade is incompatible with ESLint 9; see the deployment document for outstanding dev-tool audit findings.
 
