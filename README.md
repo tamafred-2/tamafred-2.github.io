@@ -57,7 +57,7 @@ Three featured projects and four further projects are included. The default coll
 
 Further project screenshots, resume, and confirmed project links/statuses are pending. Incident Monitoring has login, dashboard, and analytics previews; RHU Calasiao has login, dashboard, analytics, and service report previews. Screenshots are displayed in the carousel. The user confirmed that both dashboards use fictional demo records, which their captions identify. The contact section includes the supplied GitHub, LinkedIn, Facebook, Discord username, and both public emails, with original outline SVG icons and a copy-username control. The UI uses deliberate project text covers and omits unavailable actions and empty galleries. Add approved files and verified facts to the content records. Keep patient data and internal company systems private.
 
-JetBrains Mono v2.304 is bundled under SIL OFL 1.1; the license is in `public/fonts/OFL.txt`. Attribution is shown in the footer and recorded in [docs/CONTENT.md](docs/CONTENT.md).
+JetBrains Mono v2.304 is bundled under SIL OFL 1.1; the license is in `public/fonts/OFL.txt`. The font source and license are recorded in [docs/CONTENT.md](docs/CONTENT.md).
 
 ## Deployment
 

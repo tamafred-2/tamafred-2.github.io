@@ -35,7 +35,7 @@ Recorded October 13, 2026. Checked items were verified locally; unchecked items 
 - [x] No nested controls or hover-only information (source review).
 - [x] Text/focus token contrast calculated; reduced-motion CSS reviewed.
 - [ ] Image/font paths, dimensions, and alt text appropriate.
-- [x] Actual font credit and license link rendered in footer; no third-party icons used.
+- [x] Font license retained with bundled font files; optional visible font credit removed at user request.
 
 ## Technical verification
 
@@ -124,3 +124,5 @@ October 14, 2026 carousel keyboard focus: removed large image-half focus outline
 October 14, 2026 carousel icons: replaced text arrows with original inline SVG chevrons using rounded strokes. Hover fade and navigation behavior are unchanged. Lint, typecheck, build, and static preview SVG checks passed. Browser visual inspection remains unavailable; deployment remains paused.
 
 October 14, 2026 production deployment: resumed with the latest carousel refinements and missing root profile image included in commit 4db9662. Workflow run 38527904291 completed successfully, including installation, snapshot refresh, lint, typecheck, data tests, production build, and Pages deployment. Verified https://tamafred-2.github.io/ via HTTP: home, seven detail routes, sitemap, linked home images/fonts/CSS, and initial detail screenshots returned 200. Live export contains SVG carousel hints without separate Previous/Next buttons and omits Recent public repositories. Browser visual/keyboard/hover checks remain manual. Deployment is complete; earlier paused status is historical.
+
+October 14, 2026 footer cleanup: removed the optional visible typeface/license credit while retaining public/fonts/OFL.txt. Lint, typecheck, build, and static preview checks passed: no Typeface footer text and font license HTTP 200.

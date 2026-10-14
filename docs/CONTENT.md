@@ -197,9 +197,9 @@ Populate this only with actual downloaded assets. JetBrains Mono has been acquir
 
 | Local file                                | Source URL                                                                                         | Creator                        | License/plan                      | Required visible credit              |
 | ----------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------ | --------------------------------- | ------------------------------------ |
-| public/fonts/JetBrainsMono-Regular.woff2  | https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/webfonts/JetBrainsMono-Regular.woff2  | JetBrains Mono Project Authors | SIL OFL 1.1; public/fonts/OFL.txt | Typeface and license links in footer |
-| public/fonts/JetBrainsMono-Medium.woff2   | https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/webfonts/JetBrainsMono-Medium.woff2   | JetBrains Mono Project Authors | SIL OFL 1.1; public/fonts/OFL.txt | Same footer credit                   |
-| public/fonts/JetBrainsMono-SemiBold.woff2 | https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/webfonts/JetBrainsMono-SemiBold.woff2 | JetBrains Mono Project Authors | SIL OFL 1.1; public/fonts/OFL.txt | Same footer credit                   |
+| public/fonts/JetBrainsMono-Regular.woff2  | https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/webfonts/JetBrainsMono-Regular.woff2  | JetBrains Mono Project Authors | SIL OFL 1.1; public/fonts/OFL.txt | License bundled with font files |
+| public/fonts/JetBrainsMono-Medium.woff2   | https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/webfonts/JetBrainsMono-Medium.woff2   | JetBrains Mono Project Authors | SIL OFL 1.1; public/fonts/OFL.txt | License bundled with font files                   |
+| public/fonts/JetBrainsMono-SemiBold.woff2 | https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/webfonts/JetBrainsMono-SemiBold.woff2 | JetBrains Mono Project Authors | SIL OFL 1.1; public/fonts/OFL.txt | License bundled with font files                   |
 
 Use the supplied Flaticon credit in the visible footer, including required links. Retain license records. Editing an icon does not remove attribution obligations.
 
