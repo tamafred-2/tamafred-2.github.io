@@ -5,6 +5,7 @@ type Profile = {
   introduction: string;
   about: string;
   githubUrl: string;
+  avatarSrc: string;
   portrait: { src: string; alt: string; width: number; height: number };
   contacts: {
     label: string;
@@ -17,11 +18,12 @@ type Profile = {
 
 export const profile: Profile = {
   name: "Alfred Tamayo",
+  avatarSrc: "/images/alfred-avatar.webp",
   portrait: {
-    src: "/images/alfred-graduation.webp",
-    alt: "Alfred Tamayo wearing his graduation gown",
-    width: 800,
-    height: 1200,
+    src: "/images/alfred-profile.webp",
+    alt: "Alfred Tamayo wearing a dark suit and white shirt",
+    width: 680,
+    height: 680,
   },
   title: "Full Stack Developer",
   location: "Lives in Calasiao, Pangasinan; currently based in Taytay, Rizal, Philippines",
@@ -112,6 +114,22 @@ export const education = {
   major: "Web and Mobile Technologies",
   university: "Pangasinan State University — San Carlos Campus",
   recognition: "Two-time Dean's Lister",
+  portraits: [
+    {
+      src: "/images/alfred-graduation.webp",
+      alt: "Alfred Tamayo in his graduation gown at Pangasinan State University",
+      width: 800,
+      height: 1200,
+      caption: "Graduation gown",
+    },
+    {
+      src: "/images/alfred-graduation-barong.webp",
+      alt: "Alfred Tamayo wearing a barong and Pangasinan State University sash",
+      width: 800,
+      height: 1200,
+      caption: "Barong and university sash",
+    },
+  ],
   seniorHigh: {
     track: "TVL ICT",
     school: "Calasiao Comprehensive National High School",
@@ -129,7 +147,14 @@ export const experience = {
     "Contributed to Cooper, an internal HR management web application and Discord bot.",
     "Supported AWS EC2 deployments, monitoring, and production troubleshooting.",
     "Installed Uptime Kuma for company monitoring.",
+    "Served as team leader for one week, coordinating tasks and supporting team progress.",
   ],
+  article: {
+    url: "https://outsoar.ph/blogs/alfred-devops-internship/",
+    title: "The Things I Learned Beyond Coding",
+    description:
+      "My internship reflection on development, DevOps, teamwork, and leadership, published on the official Outsoar PH blog.",
+  },
 };
 
 export const skills = [

@@ -46,7 +46,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/images/alfred-avatar.webp"
+            src={profile.avatarSrc}
             alt=""
             width={44}
             height={44}

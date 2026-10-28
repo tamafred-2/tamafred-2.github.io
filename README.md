@@ -39,6 +39,8 @@ scripts/      Static preview and GitHub data utilities
 
 Edit `content/profile.ts` for personal details and `content/projects.ts` for project content. Set the public URL in `lib/site.ts`. Add approved assets to `public/` and reference them from the content records.
 
+The formal portrait appears in the header and introduction; both graduation portraits accompany the college education details. The Experience section links to Alfred's internship reflection on the official Outsoar PH blog. Image and article records live in `content/profile.ts`.
+
 ## Deployment
 
 `.github/workflows/pages.yml` checks, builds, and publishes the static export to GitHub Pages on pushes to the default branch (`main` or `master`), hourly, or by manual dispatch. Configure the repository's Pages source as GitHub Actions. Keep static export, trailing slashes, and unoptimized images enabled.

@@ -44,10 +44,15 @@ export default function Home() {
           <p className="hero-location">{profile.location}</p>
         </div>
         <figure className="hero-portrait">
-          <Image {...profile.portrait} alt={profile.portrait.alt} loading="eager" className="graduation-picture" />
+          <Image
+            {...profile.portrait}
+            alt={profile.portrait.alt}
+            loading="eager"
+            className="profile-picture"
+          />
           <figcaption>
             <span className="portrait-name">{profile.name}</span>
-            <span>{education.degree}</span>
+            <span>{profile.title}</span>
           </figcaption>
         </figure>
       </section>
@@ -92,6 +97,20 @@ export default function Home() {
               <li key={item}>{item}</li>
             ))}
           </ul>
+          <aside className="internship-article" aria-labelledby="internship-article-title">
+            <p className="eyebrow">On the Outsoar PH blog</p>
+            <h4 id="internship-article-title">{experience.article.title}</h4>
+            <p>{experience.article.description}</p>
+            <a
+              className="text-link"
+              href={experience.article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read my internship story <span aria-hidden="true">&nearr;</span>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </aside>
         </article>
       </section>
       <section className="section" aria-labelledby="skills-title">
@@ -140,6 +159,20 @@ export default function Home() {
             <p>{education.major}</p>
             <p>{education.university}</p>
             <p className="recognition">{education.recognition}</p>
+            <div className="education-portraits" aria-label="Graduation portraits">
+              {education.portraits.map((portrait) => (
+                <figure key={portrait.src}>
+                  <Image
+                    src={portrait.src}
+                    alt={portrait.alt}
+                    width={portrait.width}
+                    height={portrait.height}
+                    loading="lazy"
+                  />
+                  <figcaption>{portrait.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
           <div className="education">
             <p className="eyebrow">Senior high school</p>
