@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { education, experience, profile, skills } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { ProjectGrid } from "@/components/project-grid";
@@ -43,18 +42,6 @@ export default function Home() {
           </div>
           <p className="hero-location">{profile.location}</p>
         </div>
-        <figure className="hero-portrait">
-          <Image
-            {...profile.portrait}
-            alt={profile.portrait.alt}
-            loading="eager"
-            className="profile-picture"
-          />
-          <figcaption>
-            <span className="portrait-name">{profile.name}</span>
-            <span>{profile.title}</span>
-          </figcaption>
-        </figure>
       </section>
       <section id="work" className="section" aria-labelledby="work-title">
         <div className="section-heading">

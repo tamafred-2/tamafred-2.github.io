@@ -6,7 +6,6 @@ type Profile = {
   about: string;
   githubUrl: string;
   avatarSrc: string;
-  portrait: { src: string; alt: string; width: number; height: number };
   contacts: {
     label: string;
     value: string;
@@ -19,12 +18,6 @@ type Profile = {
 export const profile: Profile = {
   name: "Alfred Tamayo",
   avatarSrc: "/images/alfred-avatar.webp",
-  portrait: {
-    src: "/images/alfred-profile.webp",
-    alt: "Alfred Tamayo wearing a dark suit and white shirt",
-    width: 680,
-    height: 680,
-  },
   title: "Full Stack Developer",
   location: "Lives in Calasiao, Pangasinan; currently based in Taytay, Rizal, Philippines",
   introduction:

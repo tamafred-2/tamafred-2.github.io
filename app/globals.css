@@ -168,10 +168,6 @@ p {
   transform: translateY(0);
 }
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
-  align-items: center;
-  gap: 64px;
   position: relative;
   padding-block: 80px 64px;
   overflow: hidden;
@@ -246,33 +242,7 @@ p {
   font-size: 12px;
   margin-top: 32px;
 }
-.hero-copy { min-width: 0; }
-.hero-portrait {
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
-}
-.profile-picture {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: contain;
-}
-.hero-portrait figcaption {
-  display: grid;
-  gap: 4px;
-  padding: 16px 20px;
-  border-top: 3px solid var(--accent);
-  font-size: 12px;
-}
-.portrait-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-}
+.hero-copy { max-width: 720px; }
 .section {
   padding-block: 64px;
   border-top: 1px solid var(--border);
@@ -1036,9 +1006,6 @@ p {
   .container {
     width: calc(100% - 64px);
   }
-  .hero {
-    gap: 32px;
-  }
   .hero-description {
     max-width: 100%;
   }
@@ -1095,7 +1062,6 @@ p {
     padding-inline: 12px;
   }
   .hero {
-    grid-template-columns: minmax(0, 1fr);
     padding-block: 56px 48px;
   }
   .hero h1 {
@@ -1106,9 +1072,6 @@ p {
   }
   .hero-description {
     max-width: 100%;
-  }
-  .hero-portrait {
-    width: min(100%, 340px);
   }
   .hero-location {
     max-width: 30ch;
