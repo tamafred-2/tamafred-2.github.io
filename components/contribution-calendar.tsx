@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   buildContributionWeeks,
+  summarizeCalendar,
   type ContributionDay,
 } from "@/lib/github-calendar";
 
@@ -15,13 +16,43 @@ const dateLabel = (date: string) =>
   });
 
 export function ContributionCalendar({ days }: { days: ContributionDay[] }) {
+  const years = [...new Set(days.map((day) => day.date.slice(0, 4)))].reverse();
+  const [year, setYear] = useState(years[0] ?? "");
+  const visibleDays = days.filter((day) => day.date.startsWith(`${year}-`));
+  return (
+    <>
+      <div className="calendar-heading">
+        <div>
+          <h3>Contribution calendar</h3>
+          <p>Small steps, consistent progress.</p>
+        </div>
+        {years.length > 0 && (
+          <label className="calendar-year">
+            Year
+            <select value={year} onChange={(event) => setYear(event.target.value)}>
+              {years.map((value) => <option key={value}>{value}</option>)}
+            </select>
+          </label>
+        )}
+      </div>
+      <YearCalendar key={year} days={visibleDays} />
+    </>
+  );
+}
+
+function YearCalendar({ days }: { days: ContributionDay[] }) {
   const [selected, setSelected] = useState(days.length - 1);
+  const scroll = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (scroll.current) scroll.current.scrollLeft = scroll.current.scrollWidth;
+  }, []);
+  const summary = summarizeCalendar(days);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const weeks = buildContributionWeeks(days);
   const indices = new Map(days.map((day, index) => [day.date, index]));
   const active = days[selected];
   const columns = {
-    gridTemplateColumns: `repeat(${weeks.length}, minmax(10px, 1fr))`,
+    gridTemplateColumns: `repeat(${weeks.length}, 16px)`,
   };
 
   function move(event: React.KeyboardEvent<HTMLButtonElement>, index: number) {
@@ -44,10 +75,17 @@ export function ContributionCalendar({ days }: { days: ContributionDay[] }) {
 
   return (
     <div className="contribution-calendar">
+      <dl className="calendar-summary">
+        <div><dt>Contributions</dt><dd>{summary.total.toLocaleString("en-US")}</dd></div>
+        <div><dt>Active days</dt><dd>{summary.activeDays.toLocaleString("en-US")}</dd></div>
+        <div><dt>Best day</dt><dd>{summary.bestDay?.count.toLocaleString("en-US") ?? 0}<span> contributions</span></dd></div>
+      </dl>
+      {days.length > 0 && <p className="calendar-range">{dateLabel(days[0].date)} &ndash; {dateLabel(days.at(-1)!.date)}</p>}
       <p id="calendar-instructions" className="calendar-help">
-        Select a day for its count. Use arrow keys to explore.
+        Select a square or choose a date below. Arrow keys explore days; Home and End jump to the first and last date. Swipe to scroll.
       </p>
       <div
+        ref={scroll}
         className="calendar-scroll"
         role="region"
         aria-label="Contribution calendar, scroll horizontally on smaller screens"
@@ -124,6 +162,34 @@ export function ContributionCalendar({ days }: { days: ContributionDay[] }) {
           </div>
         </div>
       </div>
+      {active && (
+        <div className="calendar-date-controls">
+          <label htmlFor="contribution-date">Explore a date</label>
+          <input
+            id="contribution-date"
+            type="date"
+            min={days[0].date}
+            max={days.at(-1)!.date}
+            value={active.date}
+            onChange={(event) => {
+              const index = indices.get(event.target.value);
+              if (index !== undefined) {
+                setSelected(index);
+                const cell = buttons.current[index];
+                if (cell && scroll.current) {
+                  const cellRect = cell.getBoundingClientRect();
+                  const scrollRect = scroll.current.getBoundingClientRect();
+                  scroll.current.scrollLeft += cellRect.left - scrollRect.left - scrollRect.width / 2;
+                }
+              }
+            }}
+          />
+          <button className="button button-secondary" type="button" onClick={() => {
+            setSelected(days.length - 1);
+            buttons.current[days.length - 1]?.focus();
+          }}>Latest day</button>
+        </div>
+      )}
       <div className="calendar-bottom">
         <p role="status" aria-live="polite">
           {active

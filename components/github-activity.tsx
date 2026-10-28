@@ -37,14 +37,6 @@ function ActivityIcon({
   );
 }
 
-const formatDate = (date: string) =>
-  new Date(`${date}T00:00:00Z`).toLocaleDateString("en-US", {
-    timeZone: "UTC",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-
 export function GitHubActivity() {
   const stats = [
     {
@@ -113,16 +105,13 @@ export function GitHubActivity() {
         ))}
       </dl>
       <div className="github-calendar-panel">
-        <div className="calendar-heading">
-          <h3>Contribution calendar</h3>
-          <p>
-            {formatDate(snapshot.from)} – {formatDate(snapshot.to)}
-          </p>
-        </div>
         <ContributionCalendar days={snapshot.days} />
       </div>
       <p className="github-source">
-        Snapshot through {formatDate(snapshot.to)} ·{" "}
+        Updated <time dateTime={snapshot.fetchedAt}>{new Date(snapshot.fetchedAt).toLocaleString("en-US", {
+          timeZone: "Asia/Singapore", month: "short", day: "numeric", year: "numeric",
+          hour: "numeric", minute: "2-digit",
+        })} SGT</time> ·{" "}
         <a
           href={`${snapshot.profileUrl}?tab=overview&from=${snapshot.from}&to=${snapshot.to}`}
           target="_blank"
@@ -132,6 +121,7 @@ export function GitHubActivity() {
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
       </p>
+      <p className="github-source">Refreshes hourly. GitHub may take up to 24 hours to count new contributions.</p>
     </section>
   );
 }

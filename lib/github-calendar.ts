@@ -13,3 +13,14 @@ export function buildContributionWeeks(days: ContributionDay[]) {
     cells.slice(index * 7, index * 7 + 7),
   );
 }
+
+export function summarizeCalendar(days: ContributionDay[]) {
+  return days.reduce(
+    (summary, day) => ({
+      total: summary.total + day.count,
+      activeDays: summary.activeDays + (day.count > 0 ? 1 : 0),
+      bestDay: !summary.bestDay || day.count > summary.bestDay.count ? day : summary.bestDay,
+    }),
+    { total: 0, activeDays: 0, bestDay: null as ContributionDay | null },
+  );
+}

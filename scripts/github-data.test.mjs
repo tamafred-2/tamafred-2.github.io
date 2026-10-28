@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { parseContributionDays, summarizeDays } from "./github-data.mjs";
-import { buildContributionWeeks } from "../lib/github-calendar.ts";
+import { buildContributionWeeks, summarizeCalendar } from "../lib/github-calendar.ts";
 
 test("reads date, intensity, zero counts and comma-formatted contribution counts", () => {
   const html =
@@ -57,4 +57,46 @@ test("calendar padding keeps dates aligned across leap day and week boundaries",
   assert.deepEqual(weeks.flat().filter(Boolean), days);
   assert.ok(weeks.every((week) => week.length === 7));
   assert.deepEqual(buildContributionWeeks([]), []);
+});
+
+test("calendar summaries handle empty years, zero days, and tied best days", () => {
+  assert.deepEqual(summarizeCalendar([]), { total: 0, activeDays: 0, bestDay: null });
+  const days = [
+    { date: "2026-02-01", count: 0, level: 0 },
+    { date: "2026-02-02", count: 5, level: 3 },
+    { date: "2026-02-03", count: 5, level: 3 },
+  ];
+  assert.deepEqual(summarizeCalendar(days), { total: 10, activeDays: 2, bestDay: days[1] });
+});
+
+test("failed refresh preserves saved data locally and fails closed in strict mode", async () => {
+  const { mkdtemp, mkdir, copyFile, readFile, rm } = await import("node:fs/promises");
+  const { tmpdir } = await import("node:os");
+  const { join, resolve, sep } = await import("node:path");
+  const { spawnSync } = await import("node:child_process");
+  const root = await mkdtemp(join(tmpdir(), "portfolio-refresh-test-"));
+  try {
+    await mkdir(join(root, "scripts"));
+    await mkdir(join(root, "content"));
+    for (const name of ["refresh-github.mjs", "github-data.mjs"]) {
+      await copyFile(new URL(name, import.meta.url), join(root, "scripts", name));
+    }
+    const savedPath = join(root, "content", "github.json");
+    await copyFile(new URL("../content/github.json", import.meta.url), savedPath);
+    const before = await readFile(savedPath, "utf8");
+    const mock = "data:text/javascript," + encodeURIComponent(
+      "globalThis.fetch = async () => { throw new Error('Simulated GitHub outage'); };",
+    );
+    const script = join(root, "scripts", "refresh-github.mjs");
+    const fallback = spawnSync(process.execPath, ["--import", mock, script], { encoding: "utf8" });
+    assert.equal(fallback.status, 0, fallback.stderr);
+    assert.match(fallback.stderr, /Keeping the dated snapshot/);
+    assert.equal(await readFile(savedPath, "utf8"), before);
+    const strict = spawnSync(process.execPath, ["--import", mock, script, "--strict"], { encoding: "utf8" });
+    assert.notEqual(strict.status, 0);
+    assert.equal(await readFile(savedPath, "utf8"), before);
+  } finally {
+    assert.ok(resolve(root).startsWith(resolve(tmpdir()) + sep));
+    await rm(root, { recursive: true, force: true });
+  }
 });
