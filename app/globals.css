@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 :root {
   --background: #fafaf9;
@@ -168,6 +168,10 @@ p {
   transform: translateY(0);
 }
 .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+  align-items: center;
+  gap: 64px;
   position: relative;
   padding-block: 80px 64px;
   overflow: hidden;
@@ -242,16 +246,33 @@ p {
   font-size: 12px;
   margin-top: 32px;
 }
-.hero-mark {
-  position: absolute;
-  right: 0;
-  top: 118px;
-  font-size: 96px;
-  line-height: 1;
-  font-weight: 500;
-  letter-spacing: -0.1em;
-  color: var(--border);
-  user-select: none;
+.hero-copy { min-width: 0; }
+.hero-portrait {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.graduation-picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+}
+.hero-portrait figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 16px 20px;
+  border-top: 3px solid var(--accent);
+  font-size: 12px;
+}
+.portrait-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
 }
 .section {
   padding-block: 64px;
@@ -984,12 +1005,11 @@ p {
   .container {
     width: calc(100% - 64px);
   }
-  .hero-mark {
-    font-size: 64px;
-    top: 150px;
+  .hero {
+    gap: 32px;
   }
   .hero-description {
-    max-width: 80%;
+    max-width: 100%;
   }
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1044,6 +1064,7 @@ p {
     padding-inline: 12px;
   }
   .hero {
+    grid-template-columns: minmax(0, 1fr);
     padding-block: 56px 48px;
   }
   .hero h1 {
@@ -1055,8 +1076,8 @@ p {
   .hero-description {
     max-width: 100%;
   }
-  .hero-mark {
-    display: none;
+  .hero-portrait {
+    width: min(100%, 340px);
   }
   .hero-location {
     max-width: 30ch;

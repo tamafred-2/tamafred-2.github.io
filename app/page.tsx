@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
+import Image from "next/image";
 import { education, experience, profile, skills } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { ProjectGrid } from "@/components/project-grid";
@@ -12,37 +13,43 @@ export default function Home() {
   return (
     <main id="main-content" className="container">
       <section className="hero" aria-labelledby="intro-title">
-        <p className="eyebrow hero-intro">
-          <span aria-hidden="true" className="red-line" /> Hello, I’m{" "}
-          {profile.name}
-        </p>
-        <h1 id="intro-title">
-          {profile.title.split(" ").slice(0, -1).join(" ")}
-          <br />
-          <span className="accent">{profile.title.split(" ").at(-1)}.</span>
-        </h1>
-        <p className="hero-description">{profile.introduction}</p>
-        <div className="actions">
-          <a className="button button-primary" href="#work">
-            View projects <span aria-hidden="true">↓</span>
-          </a>
-          <a className="button button-secondary" href={profile.githubUrl}>
-            GitHub <span aria-hidden="true">↗</span>
-          </a>
-          {profile.resume && (
-            <a
-              className="button button-secondary"
-              href={profile.resume.url}
-              download
-            >
-              {profile.resume.label}
+        <div className="hero-copy">
+          <p className="eyebrow hero-intro">
+            <span aria-hidden="true" className="red-line" /> Hello, I’m{" "}
+            {profile.name}
+          </p>
+          <h1 id="intro-title">
+            {profile.title.split(" ").slice(0, -1).join(" ")}
+            <br />
+            <span className="accent">{profile.title.split(" ").at(-1)}.</span>
+          </h1>
+          <p className="hero-description">{profile.introduction}</p>
+          <div className="actions">
+            <a className="button button-primary" href="#work">
+              View projects <span aria-hidden="true">↓</span>
             </a>
-          )}
+            <a className="button button-secondary" href={profile.githubUrl}>
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+            {profile.resume && (
+              <a
+                className="button button-secondary"
+                href={profile.resume.url}
+                download
+              >
+                {profile.resume.label}
+              </a>
+            )}
+          </div>
+          <p className="hero-location">{profile.location}</p>
         </div>
-        <p className="hero-location">{profile.location}</p>
-        <span className="hero-mark" aria-hidden="true">
-          &lt;/&gt;
-        </span>
+        <figure className="hero-portrait">
+          <Image {...profile.portrait} alt={profile.portrait.alt} loading="eager" className="graduation-picture" />
+          <figcaption>
+            <span className="portrait-name">{profile.name}</span>
+            <span>{education.degree}</span>
+          </figcaption>
+        </figure>
       </section>
       <section id="work" className="section" aria-labelledby="work-title">
         <div className="section-heading">

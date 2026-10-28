@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import picture from "@/picture.jpg";
 import { useEffect, useRef, useState } from "react";
 import { profile } from "@/content/profile";
 
@@ -47,7 +46,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src={picture}
+            src="/images/alfred-avatar.webp"
             alt=""
             width={44}
             height={44}
