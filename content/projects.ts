@@ -32,7 +32,7 @@ export type Project = {
 };
 
 // Historical stacks describe project context, not confirmed release configurations.
-// Keep unconfirmed implementation/contribution details in docs/CONTENT.md.
+// Omit unconfirmed implementation and contribution claims from public records.
 export const projects: Project[] = [
   {
     slug: "ngitora",

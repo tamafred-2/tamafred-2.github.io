@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local editor, OS, and preview artifacts
+/.idea/
+/.vscode/
+/artifacts/
+/playwright-report/
+/test-results/
+Thumbs.db
+Desktop.ini
+*.log
+
+# private local working notes
+/.local/
+
+# superseded original portrait retained locally
+/picture.jpg
