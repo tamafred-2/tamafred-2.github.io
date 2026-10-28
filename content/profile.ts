@@ -114,22 +114,6 @@ export const education = {
   major: "Web and Mobile Technologies",
   university: "Pangasinan State University — San Carlos Campus",
   recognition: "Two-time Dean's Lister",
-  portraits: [
-    {
-      src: "/images/alfred-graduation.webp",
-      alt: "Alfred Tamayo in his graduation gown at Pangasinan State University",
-      width: 800,
-      height: 1200,
-      caption: "Graduation gown",
-    },
-    {
-      src: "/images/alfred-graduation-barong.webp",
-      alt: "Alfred Tamayo wearing a barong and Pangasinan State University sash",
-      width: 800,
-      height: 1200,
-      caption: "Barong and university sash",
-    },
-  ],
   seniorHigh: {
     track: "TVL ICT",
     school: "Calasiao Comprehensive National High School",

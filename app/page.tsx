@@ -159,20 +159,6 @@ export default function Home() {
             <p>{education.major}</p>
             <p>{education.university}</p>
             <p className="recognition">{education.recognition}</p>
-            <div className="education-portraits" aria-label="Graduation portraits">
-              {education.portraits.map((portrait) => (
-                <figure key={portrait.src}>
-                  <Image
-                    src={portrait.src}
-                    alt={portrait.alt}
-                    width={portrait.width}
-                    height={portrait.height}
-                    loading="lazy"
-                  />
-                  <figcaption>{portrait.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
           </div>
           <div className="education">
             <p className="eyebrow">Senior high school</p>
