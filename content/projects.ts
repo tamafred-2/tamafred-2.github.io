@@ -253,7 +253,20 @@ export const projects: Project[] = [
     overview:
       "An offline-first Android app for tracking income and expenses across multiple wallets, with transfers, budgets, recurring bills, savings goals, debts, and a monthly insights report. Data stays on the device in SQLite, with optional encrypted backup and restore and a PIN lock.",
     contributions: [],
-    features: [],
+    features: [
+      "Multiple wallets, transfers between them, and a net worth total before and after debts",
+      "Expense and income entry by wallet, amount, category, and date",
+      "Monthly budgets per category, and recurring bills and income with Paid and Skip actions",
+      "Savings goals: money moved into a goal leaves the wallet but still counts toward net worth",
+      "Monthly insights report with income, expenses, and spending by category",
+      "Transaction history with search, filters, and CSV export",
+      "Custom categories that can be added, renamed, recolored, or archived",
+      "Android home screen widgets for payments due, net worth, and quick add",
+      "Optional bill reminders at a chosen time, showing names only, no amounts",
+      "Optional update check against GitHub releases; nothing about the user or their money is sent",
+      "Light and dark themes, with a System, Light, or Dark setting",
+      "Local SQLite storage, optional password-encrypted backup and restore, and a PIN lock",
+    ],
     plannedFeatures: [],
     repositoryUrl: "https://github.com/tamafred-2/Owllowance",
     screenshots: [
