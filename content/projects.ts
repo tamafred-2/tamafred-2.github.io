@@ -326,6 +326,13 @@ export const projects: Project[] = [
         width: 800,
         height: 1781,
       },
+      {
+        src: "/projects/owllowance/widgets.webp",
+        alt: "Owllowance Android home screen widgets: a Payments due list with upcoming bills, a net worth total, and an owl quick-add button.",
+        caption: "Home screen widgets for payments due, net worth, and quick add.",
+        width: 800,
+        height: 1071,
+      },
     ],
   },
   {
