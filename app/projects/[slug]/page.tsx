@@ -119,6 +119,9 @@ export default async function ProjectPage({ params }: Props) {
             <div>
               <h3>Status</h3>
               <p>{project.status.replace("-", " ")}</p>
+              {project.statusNote && (
+                <p className="stack-note">{project.statusNote}</p>
+              )}
             </div>
           )}
           <div>

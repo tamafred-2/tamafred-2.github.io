@@ -5,6 +5,7 @@ export type ProjectImage = {
   alt: string;
   width: number;
   height: number;
+  caption?: string;
 };
 export type Project = {
   slug: string;
@@ -16,6 +17,7 @@ export type Project = {
   featured: boolean;
   visibility: "public" | "private";
   status?: "in-progress" | "completed" | "archived";
+  statusNote?: string;
   role?: string;
   stack: string[];
   stackNote?: string;
@@ -225,6 +227,91 @@ export const projects: Project[] = [
         alt: "Cooper Discord bot time-in reminder preview with a clock-in button and web application shortcut.",
         width: 1586,
         height: 992,
+      },
+    ],
+  },
+  {
+    slug: "owllowance",
+    title: "Owllowance",
+    coverTitle: "Owllowance",
+    cover: {
+      src: "/projects/owllowance/wallet-light.webp",
+      alt: "Owllowance Wallet screen with a net worth summary and a stacked card view of wallets.",
+      width: 800,
+      height: 1781,
+    },
+    context: "Personal project, in development (v0.4.0, working toward v1.0)",
+    summary:
+      "An offline-first Android app for tracking income and expenses across multiple wallets.",
+    categories: ["Mobile Apps"],
+    featured: false,
+    visibility: "public",
+    status: "in-progress",
+    statusNote:
+      "Android only for now. Cloud sync and iOS are not built. All wallet data is entered manually, and there is no connection to real bank or e-wallet accounts.",
+    stack: ["React Native", "Expo", "TypeScript", "SQLite"],
+    overview:
+      "An offline-first Android app for tracking income and expenses across multiple wallets, with transfers, budgets, recurring bills, savings goals, debts, and a monthly insights report. Data stays on the device in SQLite, with optional encrypted backup and restore and a PIN lock.",
+    contributions: [],
+    features: [],
+    plannedFeatures: [],
+    repositoryUrl: "https://github.com/tamafred-2/Owllowance",
+    screenshots: [
+      {
+        src: "/projects/owllowance/wallet-light.webp",
+        alt: "Owllowance Wallet screen in light mode with a net worth summary and a stacked card view of wallets, showing a Cash wallet balance.",
+        caption: "Multiple wallets in a card view, with light and dark mode.",
+        width: 800,
+        height: 1781,
+      },
+      {
+        src: "/projects/owllowance/wallet-dark.webp",
+        alt: "Owllowance Wallet screen in dark mode with the same net worth summary and stacked wallet cards.",
+        caption: "Multiple wallets in a card view, with light and dark mode.",
+        width: 800,
+        height: 1781,
+      },
+      {
+        src: "/projects/owllowance/insights.webp",
+        alt: "Owllowance Insights screen for a month, comparing income and expenses and listing spending by category with progress bars.",
+        caption: "Monthly income, expenses, and spending by category.",
+        width: 800,
+        height: 1781,
+      },
+      {
+        src: "/projects/owllowance/goal-detail.webp",
+        alt: "Owllowance savings goal detail with amount saved, progress toward the target, Add money and Take out buttons, and goal history.",
+        caption: "Savings goals with a history of money added and taken out.",
+        width: 800,
+        height: 1781,
+      },
+      {
+        src: "/projects/owllowance/budgets.webp",
+        alt: "Owllowance Budgets tab listing monthly budgets for food, shopping, and transport with amount spent and amount left.",
+        caption: "Monthly budgets with progress per category.",
+        width: 800,
+        height: 1781,
+      },
+      {
+        src: "/projects/owllowance/add-expense.webp",
+        alt: "Owllowance Add an expense sheet with wallet choices, an amount field, and category buttons.",
+        caption: "Quick entry by wallet, amount, and category.",
+        width: 800,
+        height: 1781,
+      },
+      {
+        src: "/projects/owllowance/recurring.webp",
+        alt: "Owllowance Recurring tab with monthly bills, due dates, amounts, and Paid and Skip buttons.",
+        caption: "Recurring bills with Paid and Skip actions.",
+        width: 800,
+        height: 1781,
+      },
+      {
+        src: "/projects/owllowance/history.webp",
+        alt: "Owllowance History screen with a search for food, a Filters button, Export CSV, and matching transactions.",
+        caption: "Transaction history with search and filters.",
+        width: 800,
+        height: 1781,
       },
     ],
   },

@@ -22,6 +22,7 @@ export function ScreenshotCarousel({
   const index = Math.min(active, images.length - 1);
   const image = images[index];
   const multiple = images.length > 1;
+  const portrait = images.every(({ width, height }) => height > width);
   const slideId = `${id}-slide`;
   const helpId = `${id}-help`;
 
@@ -97,7 +98,9 @@ export function ScreenshotCarousel({
           aria-roledescription="slide"
           aria-label={`${index + 1} of ${images.length}`}
         >
-          <div className="carousel-image-stage">
+          <div
+            className={`carousel-image-stage${portrait ? " carousel-portrait" : ""}`}
+          >
             <Image
               key={image.src}
               {...image}
@@ -156,7 +159,7 @@ export function ScreenshotCarousel({
               </>
             )}
           </div>
-          <figcaption>{image.alt}</figcaption>
+          <figcaption>{image.caption ?? image.alt}</figcaption>
         </figure>
       </div>
       <div className="carousel-controls">
